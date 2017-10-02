@@ -1,0 +1,17 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+  background-color: #B5B5B3;
+}
+.main_block {width: 800px; border:2px black solid;}
+.main_block:before,.main_block:after { overflow:hidden; content:""; display:table; }
+.main_block:after { clear:both; }
+.inner_block {
+ display: inline-block;
+ float:left;
+width:50%;
+}
+.inner_block img { width:100%; height:auto; vertical-align:middle; }

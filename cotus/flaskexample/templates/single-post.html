@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="static/ico/favicon.ico">
+
+    <title>Congress Tweets</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="static/css/style.css" rel="stylesheet">
+    <link href="static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="static/css/bootstrap-table.min.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="static/js/modernizr.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index">Congress Tweets.</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li><a href="index">HOME</a></li>
+            <li><a href="about">ABOUT</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+	<!-- *****************************************************************************************************************
+	 BLUE WRAP
+	 ***************************************************************************************************************** -->
+	<div style="background-color:#61A2DA" id="blue">
+	    <div class="container">
+			<div class="row">
+				<h1 style="color:white"><center> Congress Tweets</center></h1>
+				<h5 style="color:white"><center> updated daily.</center></h5>
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /blue -->
+
+	 
+	<!-- *****************************************************************************************************************
+	 BLOG CONTENT
+	 ***************************************************************************************************************** -->
+
+	 <div class="container">
+	 	<div class="row">
+	 	
+	 		<!-- SINGLE POST -->
+	 		<div>
+	 			<!-- Blog Post 1 -->
+		 		<center><img src="static/images/seal.jpg" style='width:400px, height:400px'></center>
+
+		 		<center><h3 style = "color:#61A2DA" class="ctitle">What did Congress tweet about this week?</h3></center>
+		 			<br><br>
+
+      			<div style="background-color:#61A2DA" id="blue">
+	    			<div class="container">
+						<div class="row">
+      						<h1 style="color:white"><center>Tweets this week: {{total}} </center></h1>
+      						<h1 style="color:white"><center>Tweeters this week: {{uni}} </center></h1>
+      					</div>
+      				</div>
+      			</div>	
+        		<!--<img src="static/images/Topics.png" alt="Topics of the Week" style="width:600px;height:450px;">-->
+    		</div>
+  		</div>
+  	</div>
+	<style>
+img {
+display: block;
+margin: 0 auto;
+	}
+	</style>
+	<style>
+caption { 
+display: table-caption;
+text-align: center;
+	</style>
+
+	<div style="background-color:#61A2DA" id="blue">
+	    <div class="container">
+			<div class="row">
+				<h2 style="color:white"><center>How to use this page:<br><h5>To interpret each topic, the grey bars show the words that appear in these tweets most frequently. <br>It may seem like a puzzle, but on a good day, the theme of these topics can be discerned from this plot. <br>For each topic, you will also see how engaged the different politcal parties are, <br> as well as how this topic has trended over the last seven days. <br>Finally, the table presents a list of all of the Senators and Reps that had a tweet categorized into this topic.</center></h5>
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /blue -->
+	<div class="container">
+	 	<div class="row">
+	 		<div>
+	 			<h1 style="color=#384452"><center>Topic 1</center></h1> 
+	 			<br><br>
+	 			<img src="static/images/Topic 1_{{indate}}.jpg" style="float: left; width: 45%; margin-right: 5%; margin-bottom: 0.5em;">
+       			<img src="static/images/split1_{{indate}}.jpg" style="float: left; width: 45%; margin-right: 1%; margin-bottom: 0.5em;">
+        		<p style="clear: both;"></p>
+        		<img src="static/images/trend1_{{indate}}.jpg" style="float: left; width: 45%; margin-right: 5%; margin-bottom: 0.5em;">
+    				<div style="height:250px;overflow:auto;float: left; width: 45%;margin-right: 1%;margin-bottom: 0.5em;">
+      					<table class="table table-hover"> 
+      					<caption style="color:black">Roll Call!</caption>
+						<tr>
+							<th><div>Name</div></th>
+							<th><div>State</div></th>
+							<th><div>Party</div></th>
+							<th><div>Chamber</div></th>
+						</tr> 
+							{% for t in roll_one %} 
+						<tr>
+							<td>{{ t['name'] }}</td>
+							<td>{{ t['state']}}</td>
+							<td> {{ t['party'] }}</td>
+							<td>{{ t['chamber'] }}</td>
+						</tr> 
+							{% endfor %} 
+						</table> 
+    				</div>
+    				<p style="clear: both;"></p>
+			</div>
+		</div>
+	</div>
+
+	<div style="background-color:#61A2DA" id="blue">
+	    <div class="container">
+			<div class="row">
+      		</div>
+      	</div>
+    </div>	
+    <div class="container">
+    	<div class="row">
+			<h1 style="color=#384452"><center>Topic 2</center></h1> 
+	 			<br><br>
+	 			<img src="static/images/Topic 2_{{indate}}.jpg" style="float: left; width: 45%; margin-right: 5%; margin-bottom: 0.5em;">
+       			<img src="static/images/split2_{{indate}}.jpg" style="float: left; width: 45%; margin-right: 1%; margin-bottom: 0.5em;">
+       			<p style="clear: both;"></p>
+      			<img src="static/images/trend2_{{indate}}.jpg" style="float: left; width: 45%; margin-right: 5%; margin-bottom: 0.5em;">
+    			<div style="height:250px;overflow:auto;float: left; width: 45%;margin-right: 1%;margin-bottom: 0.5em;">
+      				<table class="table table-hover"> 
+      				<caption style="color:black">Roll Call!</caption>
+					<tr>
+						<th><div>Name</div></th>
+						<th><div>State</div></th>
+						<th><div>Party</div></th>
+						<th><div>Chamber</div></th>
+					</tr> 
+						{% for t in roll_two %} 
+					<tr>
+						<td>{{ t['name'] }}</td>
+						<td>{{ t['state']}}</td>
+						<td> {{ t['party'] }}</td>
+						<td>{{ t['chamber'] }}</td></tr> 
+						{% endfor %} 
+					</table> 
+    			</div>
+    			<p style="clear: both;"></p>
+    	</div>
+    </div>
+    			
+	<div style="background-color:#61A2DA" id="blue">
+	    <div class="container">
+			<div class="row">
+      		</div>
+      	</div>
+    </div>	
+    <div class="container">
+    	<div class="row">
+			<h1 style="color=#384452"><center>Topic 3</center></h1> 
+	 			<br><br>
+	 			<img src="static/images/Topic 3_{{indate}}.jpg" style="float: left; width: 45%; margin-right: 5%; margin-bottom: 0.5em;">
+       			<img src="static/images/split3_{{indate}}.jpg" style="float: left; width: 45%; margin-right: 1%; margin-bottom: 0.5em;">
+        		<p style="clear: both;"></p>
+        		<img src="static/images/trend3_{{indate}}.jpg" style="float: left; width: 45%; margin-right: 5%; margin-bottom: 0.5em;">
+      			<div style="height:250px;overflow:auto;float: left; width: 45%;margin-right: 1%;margin-bottom: 0.5em;">
+					<table class="table table-hover"> 
+  					<caption style="color:black">Roll Call!</caption>
+					<tr>
+						<th><div>Name</div></th>
+						<th><div>State</div></th>
+						<th><div>Party</div></th>
+						<th><div>Chamber</div></th>
+					</tr> 
+						{% for t in roll_three %} 
+					<tr>
+						<td>{{ t['name'] }}</td>
+						<td>{{ t['state']}}</td>
+						<td> {{ t['party'] }}</td>
+						<td>{{ t['chamber'] }}</td>
+					</tr> 
+						{% endfor %} 
+					</table> 
+    			</div>
+    			<p style="clear: both;"></p>
+    	</div>
+    </div>	
+	<div style="background-color:#61A2DA" id="blue">
+	    <div class="container">
+			<div class="row">
+      		</div>
+      	</div>
+    </div>	
+    <div class="container">
+    	<div class="row">
+			<h1 style="color=#384452"><center>Topic 4</center></h1> 
+	 			<br><br>
+	 			<img src="static/images/Topic 4_{{indate}}.jpg" style="float: left; width: 45%; margin-right: 5%; margin-bottom: 0.5em;">
+        		<img src="static/images/split4_{{indate}}.jpg" style="float: left; width: 45%; margin-right: 1%; margin-bottom: 0.5em;">
+        		<p style="clear: both;"></p>
+        		<img src="static/images/trend4_{{indate}}.jpg" style="float: left; width: 45%; margin-right: 5%; margin-bottom: 0.5em;">	
+        		<div style="height:250px;overflow:auto;float: left; width: 45%;margin-right: 1%;margin-bottom: 0.5em;">
+      				<table class="table table-hover"> 
+      				<caption style="color:black">Roll Call!</caption>
+					<tr>
+						<th><div>Name</div></th>
+						<th><div>State</div></th>
+						<th><div>Party</div></th>
+						<th><div>Chamber</div></th>
+					</tr> 
+						{% for t in roll_four %} 
+					<tr>
+						<td>{{ t['name'] }}</td>
+						<td>{{ t['state']}}</td>
+						<td> {{ t['party'] }}</td>
+						<td>{{ t['chamber'] }}</td>
+					</tr> 
+						{% endfor %} 
+					</table> 
+    			</div>
+    			<p style="clear: both;"></p>
+    	</div>
+    </div>			
+	<div style="background-color:#61A2DA" id="blue">
+	    <div class="container">
+			<div class="row">
+      		</div>
+      	</div>
+    </div>	
+    <div class="container">
+    	<div class ="row">
+			<h1 style="color=#384452"><center>Topic 5</center></h1> 
+	 			<br><br>
+	 			<img src="static/images/Topic 5_{{indate}}.jpg" style="float: left; width: 45%; margin-right: 5%; margin-bottom: 0.5em;">
+       			<img src="static/images/split5_{{indate}}.jpg" style="float: left; width: 45%; margin-right: 1%; margin-bottom: 0.5em;">
+        		<p style="clear: both;"></p>
+				<img src="static/images/trend5_{{indate}}.jpg" style="float: left; width: 45%; margin-right: 5%; margin-bottom: 0.5em;">      
+				<div style="height:250px;overflow:auto;float: left; width: 45%;margin-right: 1%;margin-bottom: 0.5em;">
+      				<table class="table table-hover"> 
+      				<caption style="color:black">Roll Call!</caption>
+					<tr>
+						<th><div>Name</div></th>
+						<th><div>State</div></th>
+						<th><div>Party</div></th>
+						<th><div>Chamber</div></th>
+					</tr> 
+						{% for t in roll_five %} 
+					<tr>
+						<td>{{ t['name'] }}</td>
+						<td>{{ t['state']}}</td>
+						<td> {{ t['party'] }}</td>
+						<td>{{ t['chamber'] }}</td>
+					</tr> 
+						{% endfor %} 
+					</table> 
+    			</div>
+    			<p style="clear: both;"></p>
+		</div>
+	</div>	
+<br><br>
+<br><br>
+
+
+	<!-- *****************************************************************************************************************
+	 FOOTER
+	 ***************************************************************************************************************** -->
+	 <div id="footerwrap">
+		<div class="container">
+		 	<div class="row">
+		 		<div>
+		 			<h4>About</h4>
+		 			<div class="hline-w"></div>
+		 			<p>Congress Tweets was dreamed up and developed in three whirlwind weeks by Adam Brown during his time as a Fellow at Insight Data Science. Before attempting to model the topics that Congress tweets about, Adam earned a PhD in Psychology from Northeastern University studying how social pressures influence motivation and performance.</p>	 		
+		 		</div>
+		 		<div>
+		 			<br>
+		 			<h4>Social</h4>
+		 			<div class="hline-w"></div>
+		 			<p>
+		 				<a href="https://www.linkedin.com/in/adambrovvn/"><i class="fa fa-linkedin"></i></a>
+		 				<a href=""><i class="fa fa-github"></i></a>
+		 			</p>
+		 		</div>
+		 	
+		 	</div><!--/row -->
+	 	</div><!--/container -->
+	 </div><!--/footerwrap -->
+	 
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+	<script src="static/js/retina-1.1.0.js"></script>
+	<script src="static/js/jquery.hoverdir.js"></script>
+	<script src="static/js/jquery.hoverex.min.js"></script>
+	<script src="static/js/jquery.prettyPhoto.js"></script>
+  	<script src="static/js/jquery.isotope.min.js"></script>
+  	<script src="static/js/custom.js"></script>
+  	<script src="static/js/bootstrap-table.min.js"></script>
+  	
+
+
+  </body>
+</html>

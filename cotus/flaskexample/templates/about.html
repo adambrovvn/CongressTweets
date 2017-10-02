@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="static/ico/favicon.ico">
+
+    <title>Congress Tweets</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="static/css/style.css" rel="stylesheet">
+    <link href="static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="static/css/bootstrap-table.min.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="static/js/modernizr.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index">Congress Tweets.</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li><a href="index">HOME</a></li>
+            <li><a href="about">ABOUT</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+	<!-- *****************************************************************************************************************
+	 BLUE WRAP
+	 ***************************************************************************************************************** -->
+	<div style="background-color:#61A2DA" id="blue">
+	    <div class="container">
+			<div class="row">
+				<h1 style="color:white"><center> Congress Tweets</center></h1>
+				<h5 style="color:white"><center> updated daily.</center></h5>
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /blue -->
+
+	 
+	<!-- *****************************************************************************************************************
+	 BLOG CONTENT
+	 ***************************************************************************************************************** -->
+
+	 		<div>
+	 			<!-- Blog Post 1 -->
+		 		<center><img src="static/images/seal.jpg" style='width:200px, height:200px'></center>
+			</div>
+
+	<div class="container">
+	 	<div class="row">
+      			<div style="background-color:#61A2DA" id="blue">
+	    			<div class="container">
+						<div class="row">
+      						<h1 style="color:white"><center>Why did you do this?</center></h1>
+      					</div>
+      				</div>
+      			</div>	
+  		</div>
+  	</div>
+  	<div class="container">
+	 	<div class="row">
+	 		<div>
+	 			<h5 style="color:#384452;line-height: 1.5;">Twitter has very rapidly become a way for elected officials to interact with their constituents. However, following the entire body of the US Congress on Twitter would expose an individual to too much information. Additionally, Congresspeople on Twitter are, at the end of the day, still just people on Twitter and not everything they tweet is of great importance (e.g., when their favorite sports team wins). That said, these individuals discuss important things using this platform. Things like healthcare and tax reform, things that can impact millions of lives. Taking all of this information and distilling it down to five significant topics saves a user of this site a substantial amount of time and allows them to stay in the loop in a matter of minutes. Finally, a user can quickly see if their own representatives are engaging with these topics and respond accordingly. </p></h5> 
+	 			<br><br>
+	 			
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+	 	<div class="row">
+      			<div style="background-color:#61A2DA" id="blue">
+	    			<div class="container">
+						<div class="row">
+      						<h1 style="color:white"><center>How did you do this?</center></h1>
+      					</div>
+      				</div>
+      			</div>	
+        		<!--<img src="static/images/Topics.png" alt="Topics of the Week" style="width:600px;height:450px;">-->
+  		</div>
+  	</div>
+	<style>
+img {
+display: block;
+margin: 0 auto;
+	}
+	</style>
+	<style>
+caption { 
+display: table-caption;
+text-align: center;
+	</style>
+	<div class="container">
+	 	<div class="row">
+	 		<div>
+	 			<h5 style="color:#384452;line-height: 1.5;">Behind the scenes, Congress Tweets relies on an unsupervised natural language processing algorithm known as Latent Dirichlet Allocation (LDA). LDA is a generative statistical model that identifies topics in a body of texts (or tweets) based on how often words occur together. For this project, the LDA identifies which words tend to be associated with each topic and which topics are associated with each tweet. LDA is an incredibly useful tool, but has a number of limitations that make it challenging to use. Most notably, the number of topics that it identifies must be specified by the user prior to running the model.<br><br>The goal of Congress Tweets is to provide a summary of the five most significant topics from the last seven days, however this does not mean that the LDA is simply asked for five topics each day. Instead, every morning, Congress Tweets takes all of the tweets from the past week and dynamically selects an optimal number of topics to model. <br><br>In order to do this, the entire set of tweets is split into a training set and a testing set and an initial LDA model is trained using 5 topics. Next, each tweet in the test set is split in half and fed back into the trained model (i.e., we ask the model to guess which topic the first half of a tweet belongs to and which topic the second half of a tweet belongs to). Finally, using a technique known as cosine similarity, the topic assignments for the first half of the test tweets are compared to the topic assignments for the second half of the test tweets. Put differently, we are looking for our model to be consistent, and this is a way to test this consistency. After this cycle is completed, the model is trained again for a greater number of topics and goes through these steps again. After trying a range of topics between 5 and 30, the topic size that is the most consistent (i.e., the one with the highest cosine similarity) is selected as our optimal topic number for that day, and the LDA is trained one final time using all of the tweets from the week.<br><br>From the final trained model, the top five topics are selected and summarized so a user can see what the topics are, who is tweeting about them, how this topic trended over the last week, and how the different politcal parties engaged in these conversations.</h5> 
+	 			<br><br>
+	 			<center><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTypZKTmgpWxp8fSePq-2Er8TvZZ5wlvoXpNWJZDhOD7x6mtSTbDaofQsuaJn-UnnRTxW_wclwDiT7P/embed?start=false&loop=false&delayms=10000" frameborder="0" width="660" height="469" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></center>
+	 			
+			</div>
+		</div>
+	</div>
+
+
+	
+    
+      
+
+
+	<!-- *****************************************************************************************************************
+	 FOOTER
+	 ***************************************************************************************************************** -->
+	 <div id="footerwrap">
+		<div class="container">
+		 	<div class="row">
+		 		<div>
+		 			<h4>About</h4>
+		 			<div class="hline-w"></div>
+		 			<p>Congress Tweets was dreamed up and developed in three whirlwind weeks by Adam Brown during his time as a Fellow at Insight Data Science. Before attempting to model the topics that Congress tweets about, Adam earned a PhD in Psychology from Northeastern University studying how social pressures influence motivation and performance.</p>	 		
+		 		</div>
+		 		<div>
+		 			<br>
+		 			<h4>Social</h4>
+		 			<div class="hline-w"></div>
+		 			<p>
+		 				<a href="https://www.linkedin.com/in/adambrovvn/"><i class="fa fa-linkedin"></i></a>
+		 				<a href=""><i class="fa fa-github"></i></a>
+		 			</p>
+		 		</div>
+		 	
+		 	</div><!--/row -->
+	 	</div><!--/container -->
+	 </div><!--/footerwrap -->
+	 
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+	<script src="static/js/retina-1.1.0.js"></script>
+	<script src="static/js/jquery.hoverdir.js"></script>
+	<script src="static/js/jquery.hoverex.min.js"></script>
+	<script src="static/js/jquery.prettyPhoto.js"></script>
+  	<script src="static/js/jquery.isotope.min.js"></script>
+  	<script src="static/js/custom.js"></script>
+  	<script src="static/js/bootstrap-table.min.js"></script>
+  	
+
+
+  </body>
+</html>
