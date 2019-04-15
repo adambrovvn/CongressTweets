@@ -145,7 +145,7 @@ for j in range(0,len(week)):
 texts=[[j for j in i if not j in stops] for i in no_links]
 texts=[[j.rstrip(punctuation) for j in i]for i in texts]
 
-random.seed(22)
+random.seed(23)
 train_set = random.sample(list(range(0,len(texts))),len(texts)-1000)
 test_set = [x for x in list(range(0,len(texts))) if x not in train_set]
 
